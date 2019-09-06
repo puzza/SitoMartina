@@ -1,0 +1,115 @@
+ /* test - start */
+ 
+ .logo {
+     max-width: 10em;
+ }
+ 
+ .bkg {
+     background-color: aqua;
+ }
+ 
+ .ftr-txt,
+ .header-text,
+ .ftr {
+     color: white;
+     background-color: green;
+ }
+ 
+ .service,
+ .menu,
+ .ftr-info {
+     color: white;
+     background-color: black;
+ }
+ 
+ .service-title,
+ .ftr-icon,
+ .fake-logo {
+     color: black;
+     background-color: red;
+ }
+ 
+ .service-description,
+ .header {
+     color: white;
+     background-color: blue;
+ }
+ /* test - end */
+ /* HEADER */
+ 
+ .header {
+     grid-template-columns: auto auto auto;
+     justify-content: center;
+     justify-items: center;
+     align-content: center;
+ }
+ 
+ .header-text {
+     text-align: center;
+ }
+ 
+ .header-text>h1 {
+     margin-block-start: 0;
+     margin-block-end: 0;
+ }
+ 
+ .header-text>p {
+     margin-block-start: 0;
+     margin-block-end: 0;
+ }
+ 
+ .menu-grid-position {
+     justify-self: start;
+     align-self: center;
+ }
+ 
+ .menu {
+     padding: 0;
+     margin: 0;
+ }
+ 
+ .menu-el {
+     display: block;
+     justify-self: start;
+ }
+ 
+ .logo {
+     vertical-align: middle;
+ }
+ /*Common & Overrides */
+ 
+ a {
+     text-decoration: none;
+     color: inherit;
+ }
+ 
+ h2 {
+     text-align: center;
+ }
+ 
+ .grid {
+     display: grid;
+ }
+ 
+ .page {
+     padding: 2px 5em;
+     background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
+     background-size: cover;
+ }
+ /*FOOTER*/
+ 
+ .ftr {
+     grid-auto-flow: column;
+     justify-content: space-around;
+ }
+ 
+ .ftr-info {
+     margin: 0;
+     grid-template-columns: auto auto;
+     align-items: center;
+ }
+ 
+ .ftr-icon {
+     width: 50px;
+     height: 50px;
+ }

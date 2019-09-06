@@ -1,0 +1,16 @@
+.service-el section {
+    height: 100%;
+}
+
+.service-card {
+    height: 100%;
+    transition: transform 1s;
+}
+
+input.service-radio {
+    display: none;
+}
+
+input.service-radio:checked+label .service-card {
+    transform: scale(2);
+}
