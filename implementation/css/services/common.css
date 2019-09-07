@@ -1,3 +1,7 @@
+.service-el {
+    z-index: 2;
+}
+
 .service-el section {
     height: 100%;
 }
@@ -7,10 +11,21 @@
     transition: transform 1s;
 }
 
+.service-el-bkg {
+    z-index: 3;
+    grid-area: 1/1/-1/-1;
+    background-color: rgba(50, 240, 120, .5);
+}
+
 input.service-radio {
     display: none;
 }
 
 input.service-radio:checked+label .service-card {
     transform: scale(2);
+    pointer-events: none;
+}
+
+input.service-radio:checked+label .services-bkg {
+    visibility: hidden;
 }
