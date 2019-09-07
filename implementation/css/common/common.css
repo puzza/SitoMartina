@@ -15,7 +15,7 @@
      background-color: green;
  }
  
- .service,
+ .service-card,
  .menu,
  .ftr-info {
      color: white;
@@ -35,6 +35,31 @@
      background-color: blue;
  }
  /* test - end */
+ /*PAge Structire*/
+ 
+ .body-content {
+     display: grid;
+     grid-template-areas: 'head head head' '. page .' 'foot foot foot';
+     grid-template-columns: 5em 1fr 5em;
+     background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
+     background-size: cover;
+     min-height: 97vh;
+ }
+ 
+ .body-content>.head {
+     grid-area: head;
+     align-self: start;
+ }
+ 
+ .body-content>.page {
+     grid-area: page;
+     align-self: center;
+ }
+ 
+ .body-content>.foot {
+     grid-area: foot;
+     align-self: end;
+ }
  /* HEADER */
  
  .header {
@@ -78,6 +103,23 @@
  }
  /*Common & Overrides */
  
+ div,
+ span,
+ img,
+ section,
+ header,
+ footer,
+ h1,
+ h2,
+ h3,
+ h4 {
+     box-sizing: border-box;
+ }
+ 
+ img {
+     display: block;
+ }
+ 
  a {
      text-decoration: none;
      color: inherit;
@@ -91,11 +133,7 @@
      display: grid;
  }
  
- .page {
-     padding: 2px 5em;
-     background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
-     background-size: cover;
- }
+ .page {}
  /*FOOTER*/
  
  .ftr {

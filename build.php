@@ -4,6 +4,7 @@ const DIR_OUT = 'compiled';
 const DIR_IN = 'implementation';
 const DIR_HTML = DIR_IN . '/html';
 const DIR_CSS = DIR_IN . '/css';
+const DIR_JS = DIR_IN . '/js';
 const DIR_IMGS = DIR_IN . '/imgs';
 
 main();
@@ -11,6 +12,7 @@ main();
 function main()
 {
     delete_dir(DIR_OUT);
+    copy_dir(DIR_JS, DIR_OUT . '/js');
     copy_dir(DIR_CSS, DIR_OUT . '/css');
     copy_dir(DIR_IMGS, DIR_OUT . '/imgs');
 
@@ -19,12 +21,18 @@ function main()
     $template = build_template($input_files['template'], $pages);
     foreach ($pages as $page_name => $page_content) {
         $html = replace(array(
+            '<!--js-->' => js_link('common') . js_link($page_name),
             '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
             '<!--content-->' => $page_content,
         ), $template);
         file_put_contents(DIR_OUT . '/' . $page_name . '.html', $html);
     }
+}
+
+function js_link($page_name)
+{
+    return (file_exists(DIR_OUT . '/js/' . $page_name . '/defer.js') ? '<script defer src="./js/' . $page_name . '/defer.js"></script>' : '');
 }
 
 function css_link($page_name)
