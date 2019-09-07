@@ -1,16 +1,39 @@
-.service-el section {
+.services-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.service-container>section {
     height: 100%;
+    grid-row: span 1;
 }
 
 .service-card {
+    display: grid;
     height: 100%;
-    transition: transform 1s;
+    margin: 10px;
+    grid-template-columns: 1fr 2fr;
 }
 
-input.service-radio {
+.service-card>.service-img {
+    grid-area: 1/1/2/2;
+    width: 100%;
+    height: 100%;
+}
+
+.service-card>.service-title {
+    grid-area: 1/2/2/3;
+}
+
+.service-card>.service-description {
+    grid-area: 2/1/3/3;
     display: none;
 }
 
-input.service-radio:checked+label .service-card {
-    transform: scale(2);
+.service-container>section.open {
+    grid-row: span 2;
+}
+
+.open>.service-card>.service-description {
+    display: initial;
 }

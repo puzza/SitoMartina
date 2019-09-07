@@ -19,7 +19,7 @@ function main()
     $template = build_template($input_files['template'], $pages);
     foreach ($pages as $page_name => $page_content) {
         $html = replace(array(
-            '<!--css-->' => css_link($page_name),
+            '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
             '<!--content-->' => $page_content,
         ), $template);
@@ -29,9 +29,9 @@ function main()
 
 function css_link($page_name)
 {
-    return '<link rel="stylesheet" href="./css/' . $page_name . '/common.css">' .
-        '<link rel="stylesheet" media="screen and (min-width: 500px)" href="./css/' . $page_name . '/desktop.css">' .
-        '<link rel="stylesheet" media="screen and (max-width: 500px)" href="./css/' . $page_name . '/mobile.css">';
+    return (file_exists(DIR_OUT . '/css/' . $page_name . '/common.css') ? '<link rel="stylesheet" href="./css/' . $page_name . '/common.css">' : '') .
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/desktop.css') ? '<link rel="stylesheet" media="screen and (min-width: 500px)" href="./css/' . $page_name . '/desktop.css">' : '') .
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 500px)" href="./css/' . $page_name . '/mobile.css">' : '');
 }
 
 function build_template($tmpl, $pages)

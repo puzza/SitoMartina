@@ -1,8 +1,0 @@
-.services-container {
-    grid-template-columns: auto;
-}
-
-.service {
-    grid-template-columns: auto;
-    margin: 5px 0;
-}
