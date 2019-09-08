@@ -1,12 +1,19 @@
 {
 	"folders": [
 		{
+			"name": "css",
 			"path": "implementation\\css"
 		},
 		{
+			"name": "html",
 			"path": "implementation\\html"
 		},
 		{
+			"name": "attributions",
+			"path": "implementation\\attributions"
+		},
+		{
+			"name": "js",
 			"path": "implementation\\js"
 		}
 	]

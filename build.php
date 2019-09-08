@@ -24,6 +24,7 @@ function main()
             '<!--js-->' => js_link('common') . js_link($page_name),
             '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
+            '<!--attributions-->' => isset($input_files['attributions'][$page_name]) ? $input_files['attributions'][$page_name] : '',
             '<!--content-->' => $page_content,
         ), $template);
         file_put_contents(DIR_OUT . '/' . $page_name . '.html', $html);

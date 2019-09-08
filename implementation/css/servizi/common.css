@@ -1,23 +1,20 @@
 #services-container {
     display: grid;
+    margin-top: 1em;
     grid-template-columns: auto auto;
 }
 
-#service-container>.service-card {
-    height: 100%;
+#services-container>.service-card {
     grid-row: span 1;
-}
-
-.service-card.open {
-    grid-row: span 2;
-}
-
-.service-card {
-    display: grid;
     height: 100%;
     padding: 10px;
     border: solid lime 1px;
+    display: grid;
     grid-template-columns: 1fr 2fr;
+}
+
+#services-container>.service-card.open {
+    grid-row: span 2;
 }
 
 .service-card>.service-img {
@@ -27,6 +24,8 @@
 
 .service-card>.service-title {
     grid-area: 1/2/2/3;
+    font-size: 1.6em;
+    align-self: center;
 }
 
 .service-card>.service-description {
