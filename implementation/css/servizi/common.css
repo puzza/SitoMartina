@@ -2,6 +2,8 @@
     display: grid;
     margin-top: 1em;
     grid-template-columns: auto auto;
+    grid-column-gap: 1em;
+    grid-row-gap: 0.6em;
 }
 
 #services-container>.service-card {
@@ -10,7 +12,7 @@
     padding: 10px;
     border: solid lime 1px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 7fr;
 }
 
 #services-container>.service-card.open {
@@ -19,7 +21,7 @@
 
 .service-card>.service-img {
     grid-area: 1/1/2/2;
-    max-width: 100%;
+    padding: 0.2em;
 }
 
 .service-card>.service-title {

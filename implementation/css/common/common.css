@@ -1,33 +1,16 @@
  /* test - start */
  
- .bkg {
-     background-color: aqua;
- }
- 
- .service-card,
- .ftr-txt,
- .header-text,
- .ftr {
+ .service-card {
      color: white;
      background-color: green;
  }
  
- .menu,
- .ftr-el,
- .foot {
-     color: white;
-     background-color: black;
- }
- 
- .service-title,
- .ftr-icon,
- .fake-logo {
+ .service-title {
      color: black;
      background-color: red;
  }
  
- .service-description,
- .header {
+ .service-description {
      color: white;
      background-color: blue;
  }
@@ -47,6 +30,7 @@
  .body-content>.head {
      grid-area: head;
      align-self: start;
+     background: radial-gradient(circle farthest-side at 75% 25%, rgba(220, 220, 255), rgba(220, 220, 255, 0.3));
  }
  
  .body-content>.page {
@@ -57,6 +41,8 @@
  .body-content>.foot {
      grid-area: foot;
      align-self: end;
+     background: radial-gradient(circle farthest-side at 75% 25%, rgba(220, 220, 255), rgba(220, 220, 255, 0.3));
+     color: black;
  }
  /* HEADER */
  
@@ -104,7 +90,8 @@
  
  .menu-el {
      padding: 0.3em;
-     border: solid 0.1em white;
+     background: radial-gradient(circle farthest-corner at 60% 25%, rgba(57, 150, 204, 0.8), rgba(57, 150, 204, 0.2));
+     border: solid 0.1em rgb(47, 125, 170);
      border-radius: 0.5em;
      margin: 0.1em;
  }
@@ -168,7 +155,8 @@
      width: 3.2em;
      height: 3.2em;
      border-radius: 0.6em;
-     padding: 0.3em
+     padding: 0.3em;
+     background: radial-gradient(circle farthest-corner at 60% 25%, rgba(57, 150, 204, 0.8), rgba(57, 150, 204, 0.2));
  }
  
  .ftr-txt {
