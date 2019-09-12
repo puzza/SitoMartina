@@ -36,6 +36,11 @@
      align-self: end;
      background: radial-gradient(circle farthest-side at 75% 25%, rgba(220, 220, 255), rgba(220, 220, 255, 0.3));
  }
+ 
+ .txt-block {
+     padding: 1em;
+     background: white;
+ }
  /* HEADER */
  
  .header {
@@ -110,8 +115,6 @@
      position: relative;
      display: block;
      box-sizing: border-box;
-     margin-block-start: 0;
-     margin-block-end: 0;
      margin-inline-start: 0;
      margin-inline-end: 0;
      padding-block-start: 0;
@@ -125,6 +128,11 @@
  
  img {
      max-width: 100%;
+ }
+ 
+ h1 {
+     margin-block-start: 0;
+     margin-block-end: 0;
  }
  
  h1,
