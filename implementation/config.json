@@ -1,0 +1,12 @@
+{
+    "pages": {
+        "home": {
+            "file_name": "index.html",
+            "page_name": "home"
+        },
+        "servizi": {
+            "file_name": "services.html",
+            "page_name": "servizi"
+        }
+    }
+}

@@ -1,15 +1,5 @@
  /*Page Structure*/
  
- .fixed-bkg {
-     position: fixed;
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
-     background-size: cover;
- }
- 
  .body-content {
      color: rgb(23, 59, 80);
      border-color: rgb(23, 59, 80);
@@ -38,7 +28,6 @@
  }
  
  .txt-block {
-     padding: 1em;
      background: white;
  }
  /* HEADER */
@@ -47,11 +36,6 @@
      display: grid;
      grid-template-columns: 1fr auto 1fr;
      align-content: center;
-     padding: 0.5em;
- }
- 
- .header>.header-el {
-     padding: 0 0.7em;
  }
  
  .header>.header-text {
@@ -60,22 +44,12 @@
      text-align: center;
  }
  
- .header-title {
-     padding: 0.5em;
- }
- 
- .header-description {
-     padding: 0 0.5em 1em;
- }
- 
  .header>.logo-container {
-     width: 7.8em;
      justify-self: end;
      align-self: center;
  }
  
  .header>.menu-grid-position {
-     width: 7.8em;
      justify-self: start;
      align-self: center;
  }
@@ -150,17 +124,12 @@
  }
  
  .ftr>.ftr-el {
-     margin: 0;
-     padding: 0.5em;
      display: grid;
      grid-template-columns: auto auto;
      align-items: center;
  }
  
  .ftr-icon {
-     width: 3.2em;
-     height: 3.2em;
-     padding: 0.3em;
      background-color: rgba(47, 125, 204, 0.7);
      border: solid 0.1em rgb(23, 59, 80);
      border-radius: 0.6em;
@@ -168,18 +137,11 @@
  }
  
  .ftr-el:hover>.ftr-icon {
-     padding: 0.5em;
      background-color: rgba(82, 167, 252, 0.7);
- }
- 
- .ftr-txt {
-     padding: 0 1em 0 0.5em;
-     font-size: 1.7em;
  }
  
  .icons-attribution {
      text-align: center;
-     font-size: 0.7em;
  }
  
  .icons-attribution>a {

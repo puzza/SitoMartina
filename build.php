@@ -6,11 +6,14 @@ const DIR_HTML = DIR_IN . '/html';
 const DIR_CSS = DIR_IN . '/css';
 const DIR_JS = DIR_IN . '/js';
 const DIR_IMGS = DIR_IN . '/imgs';
+const CONFIG_FILE = DIR_IN . '/config.json';
 
 main();
 
 function main()
 {
+    $config = json_decode(file_get_contents(CONFIG_FILE), true);
+
     delete_dir(DIR_OUT);
     copy_dir(DIR_JS, DIR_OUT . '/js');
     copy_dir(DIR_CSS, DIR_OUT . '/css');
@@ -18,16 +21,16 @@ function main()
 
     $input_files = get_files(DIR_HTML);
     $pages = $input_files['pages'];
-    $template = build_template($input_files['template'], $pages);
+    $template = build_template($input_files['template'], $pages, $config['pages']);
     foreach ($pages as $page_name => $page_content) {
         $html = replace(array(
             '<!--js-->' => js_link('common') . js_link($page_name),
             '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
             '<!--attributions-->' => isset($input_files['attributions'][$page_name]) ? $input_files['attributions'][$page_name] : '',
-            '<!--content-->' => $page_content,
+            '<!--content-->' => escape($page_content),
         ), $template);
-        file_put_contents(DIR_OUT . '/' . $page_name . '.html', $html);
+        file_put_contents(DIR_OUT . '/' . $config['pages'][$page_name]['file_name'], $html);
     }
 }
 
@@ -43,13 +46,83 @@ function css_link($page_name)
         (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 500px)" href="./css/' . $page_name . '/mobile.css">' : '');
 }
 
-function build_template($tmpl, $pages)
+function build_template($tmpl, $pages, $pages_config)
 {
     $menu = '';
-    foreach ($pages as $page_name => $page_content) {
-        $menu .= '<li class="menu-el"><a href="./' . $page_name . '.html">' . strtoupper($page_name) . '</a></li>';
+    foreach ($pages as $page => $page_content) {
+        $menu .= '<li class="menu-el"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
     }
     return replace(array('<!--menu-->' => $menu), $tmpl);
+}
+
+function escape($s)
+{
+    return replace(array(
+        "À" => "&Agrave;",
+        "Á" => "&Aacute;",
+        "Â" => "&Acirc;",
+        "Ã" => "&Atilde;",
+        "Ä" => "&Auml;",
+        "Å" => "&Aring;",
+        "Æ" => "&AElig;",
+        "Ç" => "&Ccedil;",
+        "È" => "&Egrave;",
+        "É" => "&Eacute;",
+        "Ê" => "&Ecirc;",
+        "Ë" => "&Euml;",
+        "Ì" => "&Igrave;",
+        "Í" => "&Iacute;",
+        "Î" => "&Icirc;",
+        "Ï" => "&Iuml;",
+        "Ð" => "&ETH;",
+        "Ñ" => "&Ntilde;",
+        "Ò" => "&Ograve;",
+        "Ó" => "&Oacute;",
+        "Ô" => "&Ocirc;",
+        "Õ" => "&Otilde;",
+        "Ö" => "&Ouml;",
+        "Ø" => "&Oslash;",
+        "Ù" => "&Ugrave;",
+        "Ú" => "&Uacute;",
+        "Û" => "&Ucirc;",
+        "Ü" => "&Uuml;",
+        "Ý" => "&Yacute;",
+        "Þ" => "&THORN;",
+        "ß" => "&szlig;",
+        "à" => "&agrave;",
+        "á" => "&aacute;",
+        "â" => "&acirc;",
+        "ã" => "&atilde;",
+        "ä" => "&auml;",
+        "å" => "&aring;",
+        "æ" => "&aelig;",
+        "ç" => "&ccedil;",
+        "è" => "&egrave;",
+        "é" => "&eacute;",
+        "ê" => "&ecirc;",
+        "ë" => "&euml;",
+        "ì" => "&igrave;",
+        "í" => "&iacute;",
+        "î" => "&icirc;",
+        "ï" => "&iuml;",
+        "ð" => "&eth;",
+        "ñ" => "&ntilde;",
+        "ò" => "&ograve;",
+        "ó" => "&oacute;",
+        "ô" => "&ocirc;",
+        "õ" => "&otilde;",
+        "ö" => "&ouml;",
+        "ø" => "&oslash;",
+        "ù" => "&ugrave;",
+        "ú" => "&uacute;",
+        "û" => "&ucirc;",
+        "ü" => "&uuml;",
+        "ý" => "&yacute;",
+        "þ" => "&thorn;",
+        "ÿ" => "&yuml;",
+        "'" => "&#39;",
+        "’" => "&#39;"
+    ), $s);
 }
 
 function replace($map, $s)

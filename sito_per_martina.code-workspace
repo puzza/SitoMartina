@@ -9,10 +9,6 @@
 			"path": "implementation\\html"
 		},
 		{
-			"name": "attributions",
-			"path": "implementation\\attributions"
-		},
-		{
 			"name": "js",
 			"path": "implementation\\js"
 		}

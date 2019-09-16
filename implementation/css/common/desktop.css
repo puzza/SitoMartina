@@ -1,0 +1,65 @@
+ /*Page Structure*/
+ 
+ .fixed-bkg {
+     position: fixed;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
+     background-size: cover;
+ }
+ 
+ .txt-block {
+     padding: 1em;
+ }
+ /* HEADER */
+ 
+ .header {
+     padding: 0.5em;
+ }
+ 
+ .header>.header-el {
+     padding: 0 0.7em;
+ }
+ 
+ .header-title {
+     padding: 0.5em;
+ }
+ 
+ .header-description {
+     padding: 0 0.5em 1em;
+ }
+ 
+ .header>.logo-container {
+     width: 7.8em;
+ }
+ 
+ .header>.menu-grid-position {
+     width: 7.8em;
+ }
+ /*FOOTER*/
+ 
+ .ftr>.ftr-el {
+     margin: 0;
+     padding: 0.5em;
+ }
+ 
+ .ftr-icon {
+     width: 3.2em;
+     height: 3.2em;
+     padding: 0.3em;
+ }
+ 
+ .ftr-el:hover>.ftr-icon {
+     padding: 0.5em;
+ }
+ 
+ .ftr-txt {
+     padding: 0 1em 0 0.5em;
+     font-size: 1.7em;
+ }
+ 
+ .icons-attribution {
+     font-size: 0.7em;
+ }
