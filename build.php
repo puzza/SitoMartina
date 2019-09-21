@@ -42,8 +42,8 @@ function js_link($page_name)
 function css_link($page_name)
 {
     return (file_exists(DIR_OUT . '/css/' . $page_name . '/common.css') ? '<link rel="stylesheet" href="./css/' . $page_name . '/common.css">' : '') .
-        (file_exists(DIR_OUT . '/css/' . $page_name . '/desktop.css') ? '<link rel="stylesheet" media="screen and (min-width: 500px)" href="./css/' . $page_name . '/desktop.css">' : '') .
-        (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 500px)" href="./css/' . $page_name . '/mobile.css">' : '');
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/desktop.css') ? '<link rel="stylesheet" media="screen and (min-width: 550px) and (min-device-width: 480px)" href="./css/' . $page_name . '/desktop.css">' : '') .
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 550px), (max-device-width: 480px)" href="./css/' . $page_name . '/mobile.css">' : '');
 }
 
 function build_template($tmpl, $pages, $pages_config)

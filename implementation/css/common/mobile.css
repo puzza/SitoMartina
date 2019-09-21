@@ -4,6 +4,10 @@
      display: none;
  }
  
+ .body-content {
+     background-color: rgb(23, 59, 80);
+ }
+ 
  .txt-block {
      padding: 1em;
  }

@@ -1,0 +1,9 @@
+#services-container {
+    grid-template-columns: auto;
+}
+
+#services-container>.service-card {
+    grid-column: 1/2;
+    grid-template-columns: 2fr 7fr;
+    grid-template-areas: 'img title';
+}
