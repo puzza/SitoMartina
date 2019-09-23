@@ -1,5 +1,5 @@
  /*Page Structure*/
- 
+ /*
  .fixed-bkg {
      position: fixed;
      top: 0;
@@ -8,7 +8,8 @@
      right: 0;
      background: radial-gradient(circle at 80% 24%, rgba(160, 180, 255, 0.8), rgba(40, 100, 180, 0.8)), url('../../imgs/logo.jpg') no-repeat center;
      background-size: cover;
- }
+    }
+    */
  
  .txt-block {
      padding: 1em;
