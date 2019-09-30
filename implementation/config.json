@@ -7,6 +7,13 @@
         "servizi": {
             "file_name": "services.html",
             "page_name": "servizi"
+        },
+        "approfondimenti": {
+            "file_name": "speeches.html",
+            "page_name": "approfondimenti"
         }
+    },
+    "menu": {
+        "ordered_pages": ["home", "servizi", "approfondimenti"]
     }
 }

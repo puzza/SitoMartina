@@ -21,7 +21,7 @@
  .header>.header-el {
      padding: 0 0.7em;
  }
- 
+ /*
  .header-title {
      padding: 0.5em;
  }
@@ -31,7 +31,7 @@
      margin-block-start: 0;
      margin-block-end: 0;
      font-size: 0.7em;
- }
+ }*/
  
  .header>.logo-container {
      width: 7em;

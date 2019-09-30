@@ -21,7 +21,7 @@ function main()
 
     $input_files = get_files(DIR_HTML);
     $pages = $input_files['pages'];
-    $template = build_template($input_files['template'], $pages, $config['pages']);
+    $template = build_template($input_files['template'], $pages, $config);
     foreach ($pages as $page_name => $page_content) {
         $html = replace(array(
             '<!--js-->' => js_link('common') . js_link($page_name),
@@ -46,10 +46,11 @@ function css_link($page_name)
         (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 550px), (max-device-width: 480px)" href="./css/' . $page_name . '/mobile.css">' : '');
 }
 
-function build_template($tmpl, $pages, $pages_config)
+function build_template($tmpl, $pages, $config)
 {
+    $pages_config = $config['pages'];
     $menu = '';
-    foreach ($pages as $page => $page_content) {
+    foreach ($config['menu']['ordered_pages'] as $page) {
         $menu .= '<li class="menu-el"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
     }
     return replace(array('<!--menu-->' => $menu), $tmpl);
@@ -120,8 +121,11 @@ function escape($s)
         "ý" => "&yacute;",
         "þ" => "&thorn;",
         "ÿ" => "&yuml;",
-        "'" => "&#39;",
-        "’" => "&#39;"
+        "'" => "&rsquo;",//"&#39;",
+        "’" => "&rsquo;",
+        '”' => "&rdquo;",
+        '“' => "&ldquo;",
+        '–' => '&ndash;'
     ), $s);
 }
 
