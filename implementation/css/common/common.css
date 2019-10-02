@@ -125,6 +125,8 @@
 .menu {
     display: grid;
     text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .menu-el {
@@ -136,6 +138,15 @@
     border: solid 0.1em white;
     border-radius: 0.5em;
     margin: 0.1em;
+    font-size: 0.7em;
+}
+
+.menu>.menu-el:first-child {
+    grid-area: 1/1/2/3;
+}
+
+.menu>.menu-el:last-child {
+    grid-area: 3/1/4/3;
 }
 
 .menu-el:hover {

@@ -8,12 +8,16 @@
             "file_name": "services.html",
             "page_name": "servizi"
         },
+        "eventi": {
+            "file_name": "events.html",
+            "page_name": "eventi"
+        },
         "approfondimenti": {
             "file_name": "speeches.html",
             "page_name": "approfondimenti"
         }
     },
     "menu": {
-        "ordered_pages": ["home", "servizi", "approfondimenti"]
+        "ordered_pages": ["home", "servizi", "eventi", "approfondimenti"]
     }
 }
