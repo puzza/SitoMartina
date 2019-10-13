@@ -9,8 +9,8 @@
     text-align: center;
     height: 100%;
     padding: 10px;
-    border: solid 0.1em rgb(23, 59, 80);
-    background: radial-gradient(circle farthest-corner at 75% 25%, #fdff99, #f5bd2c);
+    /*border: solid 0.1em rgb(23, 59, 80);
+    background: radial-gradient(circle farthest-corner at 75% 25%, #fdff99, #f5bd2c);*/
     display: grid;
     align-content: center;
 }

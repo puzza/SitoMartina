@@ -15,15 +15,12 @@
      padding: 1em;
  }
  /* HEADER */
- 
+ /*
  .header {
      padding: 0.5em;
  }
- 
- .header>.header-el {
-     padding: 0 0.7em;
- }
- 
+ */
+ /*
  .header>.logo-container {
      width: 7.8em;
  }
@@ -31,6 +28,7 @@
  .header>.menu-grid-position {
      width: 7.8em;
  }
+ */
  /*FOOTER*/
  
  .ftr>.ftr-el {
