@@ -21,15 +21,15 @@ function main()
 
     $input_files = get_files(DIR_HTML);
     $pages = $input_files['pages'];
-    $template = build_template($input_files['template'], $pages, $config);
     foreach ($pages as $page_name => $page_content) {
         $html = replace(array(
+            '<!--menu-->' => build_menu($page_name, $config),
             '<!--js-->' => js_link('common') . js_link($page_name),
             '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
             '<!--attributions-->' => isset($input_files['attributions'][$page_name]) ? $input_files['attributions'][$page_name] : '',
             '<!--content-->' => escape($page_content),
-        ), $template);
+        ), $input_files['template']);
         file_put_contents(DIR_OUT . '/' . $config['pages'][$page_name]['file_name'], $html);
     }
 }
@@ -46,14 +46,15 @@ function css_link($page_name)
         (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 550px), (max-device-width: 480px)" href="./css/' . $page_name . '/mobile.css">' : '');
 }
 
-function build_template($tmpl, $pages, $config)
+function build_menu($current_page, $config)
 {
     $pages_config = $config['pages'];
     $menu = '';
     foreach ($config['menu']['ordered_pages'] as $page) {
-        $menu .= '<li class="menu-el"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
+        $current_class = $page == $current_page ? ' selected' : '';
+        $menu .= '<li class="menu-el'.$current_class.'"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
     }
-    return replace(array('<!--menu-->' => $menu), $tmpl);
+    return $menu;
 }
 
 function escape($s)

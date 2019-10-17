@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Vollkorn+SC&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Lato|Vollkorn+SC&display=swap');*/
+
 
 /* work-in-progress */
 
 #work-in-progress {
     position: fixed;
+    line-height: 5em;
     top: 0;
     left: 0;
     right: 0;
@@ -58,7 +60,8 @@
     /* TODO da togliere e capire dove mettere*/
     font-size: 0.7em;
     /* TODO da togliere e capire dove mettere*/
-    font-family: 'Lato', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 59, 80);
     display: grid;
     grid-template-areas: 'head head' 'menu page' 'foot foot';
@@ -108,7 +111,12 @@
     text-align: justify;
     border-radius: 0.5em;
     /*background: linear-gradient(to bottom, #fef1e0, transparent 3%, transparent 97%, #dbc4b2), linear-gradient(to left, #fef1e0, #fdffea 1%, #fdffea 99%, #dbc4b2);*/
-    background: rgba(255, 255, 255, 0.5);
+    /*background: rgba(255, 255, 255, 0.5);*/
+    background: rgb(225, 236, 218);
+}
+
+.txt-block>.txt-block {
+    background: rgb(195, 217, 181);
 }
 
 
@@ -168,7 +176,7 @@
 }
 
 .menu-el {
-    padding: 0.3em 0.7em;
+    /*padding: 0.3em 0.7em;*/
     /*background-color: rgba(57, 150, 204, 0.2);
     border: solid 0.1em rgb(23, 59, 80);*/
     /*color: white;
@@ -178,6 +186,16 @@
     border-radius: 0.5em;
     margin: 0.1em;
     font-size: 1.5em;
+}
+
+.menu-el>a {
+    padding: 0.3em 0.7em;
+}
+
+.menu-el.selected {
+    background: rgb(225, 236, 218);
+    /*cursor: default;*/
+    pointer-events: none;
 }
 
 
@@ -191,7 +209,7 @@
 }
 */
 
-.menu-el:hover {
+.menu-el:not(.selected):hover {
     /*background-color: rgba(57, 150, 204, 0.5);*/
     color: rgb(23, 59, 80);
     background-color: white;
@@ -249,7 +267,8 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Vollkorn SC', serif;
+    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: 'Vollkorn SC', serif;*/
     text-align: center;
 }
 
