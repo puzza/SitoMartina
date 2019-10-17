@@ -305,3 +305,11 @@ h4 {
 .icons-attribution>a {
     display: initial;
 }
+
+
+/* Prova CSS Generico che usa card da applicare in più pagine*/
+
+.card-container {
+    display: grid;
+    grid-auto-flow: row;
+}
