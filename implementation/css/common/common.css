@@ -32,7 +32,6 @@
     align-self: start;
     background-color: red;
     color: white;
-    border-radius: 0.5em;
     height: 2em;
 }
 
@@ -48,7 +47,7 @@
 }
 
 
-/*Page Structure*/
+/*body-content*/
 
 .body-content {
     grid-row-gap: 3em;
@@ -86,21 +85,21 @@
     grid-area: foot;
 }
 
+
+/* txt-block */
+
 .txt-block {
     text-align: justify;
     padding: 1em;
-    border-radius: 0.5em;
     background: rgb(225, 236, 218);
 }
 
-.txt-block-container {
-    padding: 0.2em 0.5em;
-    border-radius: 0.5em;
-}
-
-.txt-block.card-title {
+.txt-block.title {
     text-align: center;
 }
+
+
+/* card */
 
 .card-container {
     display: grid;
@@ -108,16 +107,38 @@
     grid-gap: 1em;
 }
 
-
-/* inizio - prova: da togliere*/
-
-.txt-block-container,
-.txt-block {
-    border: solid 1px;
+.card {
+    padding: 1em;
+    display: grid;
+    gap: 0;
+    transition: gap 500ms;
+    background: rgb(225, 236, 218);
 }
 
+.card.open {
+    gap: 1em;
+}
 
-/*fine - prova*/
+.card>.title {
+    padding: 0;
+}
+
+.card>.card-description {
+    background: rgb(195, 217, 181);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 0;
+    transition: max-height 500ms;
+}
+
+.card>.card-description>.txt-block {
+    background: transparent;
+}
+
+.card.open>.card-description {
+    max-height: 100vh;
+    display: block;
+}
 
 
 /* HEADER */
@@ -154,7 +175,6 @@
 
 .menu-el {
     background: rgba(0, 0, 0, 0.15);
-    border-radius: 0.5em;
     margin: 0.1em;
     font-size: 1.5em;
 }
@@ -191,7 +211,6 @@
 .ftr-icon {
     background: #fdffea 1%;
     border: solid 0.1em #846d65;
-    border-radius: 0.6em;
     transition: padding 1s;
 }
 
@@ -230,6 +249,7 @@ p {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border-radius: 0.5em;
     text-decoration: none;
     color: inherit;
     border-color: inherit;
