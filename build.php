@@ -1,5 +1,7 @@
 <?php
 
+//require __DIR__ . "/../scssphp/scss.inc.php";
+
 const DIR_OUT = 'compiled';
 const DIR_IN = 'implementation';
 const DIR_HTML = DIR_IN . '/html';
@@ -52,7 +54,7 @@ function build_menu($current_page, $config)
     $menu = '';
     foreach ($config['menu']['ordered_pages'] as $page) {
         $current_class = $page == $current_page ? ' selected' : '';
-        $menu .= '<li class="menu-el'.$current_class.'"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
+        $menu .= '<li class="menu-el' . $current_class . '"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
     }
     return $menu;
 }
@@ -122,11 +124,11 @@ function escape($s)
         "ý" => "&yacute;",
         "þ" => "&thorn;",
         "ÿ" => "&yuml;",
-        "'" => "&rsquo;",//"&#39;",
-        "’" => "&rsquo;",
+        "'" => "&rsquo;", //"&#39;",
+         "’" => "&rsquo;",
         '”' => "&rdquo;",
         '“' => "&ldquo;",
-        '–' => '&ndash;'
+        '–' => '&ndash;',
     ), $s);
 }
 
@@ -167,6 +169,21 @@ function copy_dir($dir_from, $dir_to)
                 echo 'Errore copiando "' . $path . '" in "' . $path_to . "\"\n";
             }
         });
+}
+
+function compile_css_dir($dir_from, $dir_to)
+{
+    mkdir($dir_to, 0777, true);
+    explore_dir($dir_from,
+        function ($file, $path) use ($dir_to) {
+            compile_css_dir($path, $dir_to . '/' . $file);
+        },
+        function ($file, $path) use ($dir_to) {
+            $scss = new scssc();
+            $path_to = $dir_to . '/' . $file;
+            file_put_contents($path_to, $scss->compile(file_get_contents($path)));
+        }
+    );
 }
 
 function delete_dir($dir)
