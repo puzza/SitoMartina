@@ -18,8 +18,10 @@ function main()
 
     delete_dir(DIR_OUT);
     copy_dir(DIR_JS, DIR_OUT . '/js');
-    copy_dir(DIR_CSS, DIR_OUT . '/css');
+    //copy_dir(DIR_CSS, DIR_OUT . '/css');
     copy_dir(DIR_IMGS, DIR_OUT . '/imgs');
+
+    copy_css_files(get_files(DIR_CSS), DIR_OUT . '/css');
 
     $input_files = get_files(DIR_HTML);
     $pages = $input_files['pages'];
@@ -44,8 +46,8 @@ function js_link($page_name)
 function css_link($page_name)
 {
     return (file_exists(DIR_OUT . '/css/' . $page_name . '/common.css') ? '<link rel="stylesheet" href="./css/' . $page_name . '/common.css">' : '') .
-        (file_exists(DIR_OUT . '/css/' . $page_name . '/desktop.css') ? '<link rel="stylesheet" media="screen and (min-width: 550px) and (min-device-width: 480px)" href="./css/' . $page_name . '/desktop.css">' : '') .
-        (file_exists(DIR_OUT . '/css/' . $page_name . '/mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 550px), (max-device-width: 480px)" href="./css/' . $page_name . '/mobile.css">' : '');
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/rsp-desktop.css') ? '<link rel="stylesheet" media="screen and (min-width: 550px) and (min-device-width: 480px)" href="./css/' . $page_name . '/rsp-desktop.css">' : '') .
+        (file_exists(DIR_OUT . '/css/' . $page_name . '/rsp-mobile.css') ? '<link rel="stylesheet" media="screen and (max-width: 550px), (max-device-width: 480px)" href="./css/' . $page_name . '/rsp-mobile.css">' : '');
 }
 
 function build_menu($current_page, $config)
@@ -59,6 +61,24 @@ function build_menu($current_page, $config)
     return $menu;
 }
 
+function copy_css_files($dirs, $dir_out)
+{
+    foreach ($dirs as $page_name => $files) {
+        $dir_to = $dir_out . '/' . $page_name;
+        mkdir($dir_to, 0777, true);
+        $common_css = '';
+        foreach ($files as $file_name => $css) {
+            if ($file_name == 'rsp-desktop' || $file_name == 'rsp-mobile') {
+                file_put_contents($dir_to . '/' . $file_name . '.css', $css);
+            } else {
+                $common_css .= $css . "\n";
+            }
+        }
+        file_put_contents($dir_to . '/common.css', $common_css);
+    }
+}
+
+//UTILS
 function escape($s)
 {
     return replace(array(
@@ -141,7 +161,6 @@ function replace($map, $s)
     return $replaced;
 }
 
-//UTILS
 function get_files($dir, $remove_ext = true)
 {
     $files = array();
