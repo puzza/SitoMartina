@@ -1,0 +1,45 @@
+#work-in-progress {
+    position: fixed;
+    line-height: 5em;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    background-color: rgba(247, 231, 9, 0.85);
+    border: solid rgb(23, 59, 80) 1em;
+    color: rgb(23, 59, 80);
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 12em 1fr 2em;
+    padding: 1em 5em;
+    animation: work-in-progress 1200ms ease 200ms 1 both;
+}
+
+.work-in-progress-txt {
+    text-align: center;
+    font-size: 3.5em;
+    align-self: center;
+}
+
+.work-in-progress-img {
+    fill: rgb(23, 59, 80);
+}
+
+.work-in-progress-close {
+    align-self: start;
+    background-color: red;
+    color: white;
+    height: 2em;
+}
+
+@keyframes work-in-progress {
+    from {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+    to {
+        opacity: unset;
+        transform: none;
+    }
+}

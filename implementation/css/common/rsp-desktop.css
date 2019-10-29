@@ -1,0 +1,25 @@
+ /*FOOTER*/
+ 
+ .ftr>.ftr-el {
+     margin: 0;
+     padding: 0.5em;
+ }
+ 
+ .ftr-icon {
+     width: 3.2em;
+     height: 3.2em;
+     padding: 0.3em;
+ }
+ 
+ .ftr-el:hover>.ftr-icon {
+     padding: 0.5em;
+ }
+ 
+ .ftr-txt {
+     padding: 0 1em 0 0.5em;
+     font-size: 1.7em;
+ }
+ 
+ .icons-attribution {
+     font-size: 0.7em;
+ }

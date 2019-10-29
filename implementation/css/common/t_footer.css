@@ -1,0 +1,29 @@
+.ftr {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-around;
+}
+
+.ftr>.ftr-el {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+.ftr-icon {
+    background: #fdffea 1%;
+    border: solid 0.1em #846d65;
+    transition: padding 1s;
+}
+
+.ftr-el:hover>.ftr-icon {
+    background-color: #ffdf50;
+}
+
+.icons-attribution {
+    text-align: center;
+}
+
+.icons-attribution>a {
+    display: initial;
+}
