@@ -10,7 +10,6 @@
     border: solid rgb(23, 59, 80) 1em;
     color: rgb(23, 59, 80);
     margin: 1em;
-    display: grid;
     grid-template-columns: 12em 1fr 2em;
     padding: 1em 5em;
     animation: work-in-progress 1200ms ease 200ms 1 both;

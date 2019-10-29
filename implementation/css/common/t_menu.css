@@ -1,11 +1,10 @@
 .menu {
-    display: grid;
     text-align: center;
     grid-auto-flow: row;
 }
 
 .menu-el {
-    background-color: var(--txt-block-color);
+    background-color: var(--c6);
     margin: 0.1em;
     font-size: 1.5em;
 }
@@ -15,11 +14,11 @@
 }
 
 .menu-el.selected {
-    background: var(--bkg-color);
+    background: var(--c7);
     pointer-events: none;
 }
 
 .menu-el:not(.selected):hover {
-    color: var(--txt-block-color);
-    background-color: var(--txt-color);
+    color: var(--c8);
+    background-color: var(--c9);
 }

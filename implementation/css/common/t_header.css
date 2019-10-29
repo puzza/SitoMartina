@@ -1,5 +1,4 @@
 .header {
-    display: grid;
     padding: 0.5em;
     grid-template-columns: 1fr auto 1fr;
 }
