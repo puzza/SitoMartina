@@ -5,14 +5,13 @@
     --txt-block-color: rgb(225, 236, 218);
     --txt-color: rgb(23, 59, 80);
     */
-    --c0: black;
-    --c1: red;
-    --c2: white;
-    --c3: lime;
-    --c4: rgb(100, 120, 255);
-    --c5: yellow;
-    --c6: violet;
-    --c7: green;
-    --c8: grey;
-    --c9: rgb(163, 92, 0);
+    /*red;*/
+    --c0: white;
+    --c1: rgb(225, 236, 218);
+    --c2: rgb(195, 217, 181);
+    --c3: rgb(195, 217, 181);
+    /*--c3: rgb(165, 196, 140);*/
+    --c4: rgb(50, 85, 30);
+    /*Transision time*/
+    --transition-time: 200ms;
 }

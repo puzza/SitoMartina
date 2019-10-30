@@ -3,6 +3,7 @@ div,
 span,
 img,
 section,
+nav,
 header,
 footer,
 ul,
@@ -18,7 +19,8 @@ p {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*border-radius: 0.5em;*/
+    /*border-radius: .5em;*/
+    color: var(--c4);
     text-decoration: none;
     max-width: 100%;
     font-family: Arial, Helvetica, sans-serif;

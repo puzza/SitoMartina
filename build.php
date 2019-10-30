@@ -15,6 +15,7 @@ main();
 function main()
 {
     $config = json_decode(file_get_contents(CONFIG_FILE), true);
+    $icons_replace = get_icons_replace($config);
 
     delete_dir(DIR_OUT);
     copy_dir(DIR_JS, DIR_OUT . '/js');
@@ -26,14 +27,14 @@ function main()
     $input_files = get_files(DIR_HTML);
     $pages = $input_files['pages'];
     foreach ($pages as $page_name => $page_content) {
-        $html = replace(array(
+        $html = replace($icons_replace, replace(array(
             '<!--menu-->' => build_menu($page_name, $config),
             '<!--js-->' => js_link('common') . js_link($page_name),
             '<!--css-->' => css_link('common') . css_link($page_name),
             '<!--page_title-->' => strtoupper($page_name),
-            '<!--attributions-->' => isset($input_files['attributions'][$page_name]) ? $input_files['attributions'][$page_name] : '',
-            '<!--content-->' => escape($page_content),
-        ), $input_files['template']);
+            //'<!--attributions-->' => isset($input_files['attributions'][$page_name]) ? $input_files['attributions'][$page_name] : '',
+             '<!--content-->' => escape($page_content),
+        ), $input_files['template']));
         file_put_contents(DIR_OUT . '/' . $config['pages'][$page_name]['file_name'], $html);
     }
 }
@@ -59,6 +60,20 @@ function build_menu($current_page, $config)
         $menu .= '<li class="menu-el' . $current_class . '"><a href="./' . $pages_config[$page]['file_name'] . '">' . strtoupper($pages_config[$page]['page_name']) . '</a></li>';
     }
     return $menu;
+}
+
+function get_icons_replace($config)
+{
+    $icons_replace = array();
+    foreach ($config['icons'] as $name => $icon) {
+        $icons_replace['<!--icon-' . $name . '-->'] = svg($icon);
+    }
+    return $icons_replace;
+}
+
+function svg($data)
+{
+    return '<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="' . $data['vb'] . '"><path d="' . $data['d'] . '"/></svg>';
 }
 
 function copy_css_files($dirs, $dir_out)

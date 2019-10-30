@@ -1,7 +1,6 @@
 .txt-block {
     text-align: justify;
     padding: 1em;
-    background-color: var(--c0);
 }
 
 .txt-block.title {
@@ -13,15 +12,17 @@
 
 .card-container {
     grid-auto-flow: row;
-    grid-gap: 1em;
+    gap: 1em;
 }
 
 .card {
     padding: 1em;
     grid-template-columns: auto 1fr;
     row-gap: 0;
-    transition: row-gap 500ms;
-    background-color: var(--c1);
+    transition: row-gap var(--transition-time);
+    color: var(--c0);
+    background-color: var(--c3);
+    cursor: pointer;
 }
 
 .card.open {
@@ -42,15 +43,12 @@
 
 .card>.card-description {
     grid-area: 2/1/3/3;
-    background-color: var(--c2);
+    color: var(--c4);
+    background-color: var(--c1);
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 0;
-    transition: max-height 500ms;
-}
-
-.card>.card-description>.txt-block {
-    background: transparent;
+    transition: max-height var(--transition-time);
 }
 
 .card.open>.card-description {

@@ -1,11 +1,10 @@
 .body-content {
-    grid-gap: 1em;
+    gap: 1em;
     padding: 1em 3em;
-    color: var(--c3);
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1em 1fr 1em auto;
     min-height: 97vh;
-    background-color: var(--c4);
+    background-color: var(--c3);
 }
 
 .img-separator {
@@ -14,7 +13,8 @@
 }
 
 .body-content>.content-box {
-    background-color: var(--c5);
+    background-color: var(--c0);
+    padding: .2em;
 }
 
 .body-content>.head {

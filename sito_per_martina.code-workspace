@@ -1,16 +1,26 @@
 {
 	"folders": [
 		{
-			"name": "css",
-			"path": "implementation\\css"
-		},
-		{
 			"name": "html",
 			"path": "implementation\\html"
 		},
 		{
+			"name": "css",
+			"path": "implementation\\css"
+		},
+		{
 			"name": "js",
-			"path": "implementation\\js"
+			"path": "implementation\\js\\common"
+		},
+		{
+			"name": "contacts_svg",
+			"path": "implementation\\svg\\contacts_svg"
+		},
+		{
+			"path": "implementation\\config.json"
+		},
+		{
+			"path": "build.php"
 		}
 	]
 }

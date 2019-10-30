@@ -1,24 +1,28 @@
+.menu-grid-container {
+    align-content: start;
+}
+
 .menu {
     text-align: center;
     grid-auto-flow: row;
 }
 
 .menu-el {
-    background-color: var(--c6);
-    margin: 0.1em;
+    background-color: var(--c1);
+    margin: .1em;
     font-size: 1.5em;
 }
 
 .menu-el>a {
-    padding: 0.3em 0.7em;
+    padding: .3em .7em;
 }
 
 .menu-el.selected {
-    background: var(--c7);
+    color: var(--c0);
+    background-color: var(--c3);
     pointer-events: none;
 }
 
 .menu-el:not(.selected):hover {
-    color: var(--c8);
-    background-color: var(--c9);
+    background-color: var(--c2);
 }

@@ -1,0 +1,7 @@
+.icon {
+    fill: var(--c4);
+    background-color: var(--c2);
+    border: solid 1px var(--c4);
+    width: 3em;
+    padding: .3em;
+}

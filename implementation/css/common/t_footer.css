@@ -3,24 +3,20 @@
     justify-content: space-around;
 }
 
-.ftr>.ftr-el {
+.ftr-el {
+    background-color: var(--c1);
+    border: solid 1px var(--c4);
     grid-template-columns: auto auto;
     align-items: center;
+    margin: 0;
+    padding: .5em;
 }
 
-.ftr-icon {
-    background: #fdffea 1%;
-    border: solid 0.1em #846d65;
+.ftr-txt {
+    padding: 0 1em 0 .5em;
+    font-size: 1.3em;
 }
 
-.ftr-el:hover>.ftr-icon {
-    background-color: #ffdf50;
-}
-
-.icons-attribution {
-    text-align: center;
-}
-
-.icons-attribution>a {
-    display: initial;
+.ftr-el:hover>.icon {
+    background-color: var(--c0);
 }
